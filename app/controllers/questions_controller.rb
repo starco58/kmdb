@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
     # Your Ruby goes here.
 
-    # @year_of_oldest_movie = ???
+    @year_of_oldest_movie = Movie.order.last
   end
 
   def question_3
