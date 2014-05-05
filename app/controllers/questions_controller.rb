@@ -19,12 +19,16 @@ class QuestionsController < ApplicationController
    end
   end
 
+class QuestionsController < ApplicationController
   def question_3
     # How many movies does the director of the first movie have on the list?
 
     # Your Ruby goes here.
+    @movie_sort = Movie.order("year DESC")
+    @year_of_oldest_movie = @movie_sort.last.director_id
+    @number_of_movies_directed_by_first_movie_director = Movie.where({ :director_id => "#{@year_of_oldest_movie}"}).count
 
-    # @number_of_movies_directed_by_first_movie_director = ???
+   end
   end
 
   def question_4
