@@ -11,4 +11,10 @@ class MoviesController < ApplicationController
     @movie = params[:id]
 
   end
+
+  def director
+    @director_name = Director.find_by({ :director_id => "director_id" }).name
+    # @director_info = Director.find_by({ :name => "#{@director_id}" }).name
+
+  end
 end
