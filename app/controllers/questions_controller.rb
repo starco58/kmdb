@@ -8,12 +8,15 @@ class QuestionsController < ApplicationController
     end
   end
 
+class QuestionsController < ApplicationController
   def question_2
     # In what year was the oldest movie on the list released?
 
     # Your Ruby goes here.
+    @movie_sort = Movie.order("year DESC")
+    @year_of_oldest_movie = @movie_sort.last.year
 
-    @year_of_oldest_movie = Movie.order.last
+   end
   end
 
   def question_3
@@ -36,18 +39,18 @@ class QuestionsController < ApplicationController
   def question_5
     # What is the most recent movie on the list that the first actor appeared in?
 
-    actor_roles = []
-    actor_movies = []
+    # actor_roles = []
+    # actor_movies = []
 
-    r = Role.where({ :actor_id => Actor.first.id }).select("movie_id")
-    actor_roles << r
+    # r = Role.where({ :actor_id => Actor.first.id }).select("movie_id")
+    # actor_roles << r
 
-    actor_roles.each do |r|
-      m = Movie.where({ :id => r }).order("year DESC")
-      actor_movies << m
-    end
+    # actor_roles.each do |r|
+    #   m = Movie.where({ :id => r }).order("year DESC")
+    #   actor_movies << m
+    # end
 
-    @most_recent_movie_for_first_actor = actor_movies
+    # @most_recent_movie_for_first_actor = actor_movies
 
   end
     # What is the most recent movie on the list that the first actor appeared in?
