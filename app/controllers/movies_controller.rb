@@ -1,6 +1,11 @@
 class MoviesController < ApplicationController
   def index
     @list_of_movies = Movie.all
+
+    # @director_id = Movie.find_by({ :director_id => "director_id" })
+    @director_info = Director.find_by({:movie => "director_id"})
+    @director_name = @director_info.name
+
   end
 
   def show
@@ -12,9 +17,9 @@ class MoviesController < ApplicationController
 
   end
 
-  def director
-    @director_name = Directors.find_by({ :director_id => "director_id" }).name
-    # @director_info = Director.find_by({ :name => "#{@director_id}" }).name
+  # def director
+  #   # @director_name = Directors.find_by({ :director_id => "director_id" }).name
+  #   # @director_info = Director.find_by({ :name => "#{@director_id}" }).name
 
-  end
+  # end
 end
