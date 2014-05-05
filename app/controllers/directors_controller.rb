@@ -8,6 +8,6 @@ class DirectorsController < ApplicationController
     # Use the information after the slash in the URL to look up the director with the corresponding ID number
     # Store the director in the @director instance variable so the view can format it
 
-   @director = Director.where({ :directors => "id" })
+   @director = params[:id]
   end
 end
