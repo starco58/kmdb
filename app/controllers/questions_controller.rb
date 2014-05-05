@@ -31,14 +31,18 @@ class QuestionsController < ApplicationController
    end
   end
 
+class QuestionsController < ApplicationController
   def question_4
     # What is the most number of movies any single director has on the list?
 
     # Your Ruby goes here.
     # You'll probably have to use both ActiveRecord query methods as well as some plain old Ruby logic.
-
-    # @most_number_of_movies_by_a_single_director = ???
-  end
+    @movie_sort = Movie.order("director_id DESC")
+    # @year_of_oldest_movie = @movie_sort.last.director_id
+    @director_with_most_movies = Movie.maximum("director_id")
+    @most_number_of_movies_by_a_single_director = @director_with_most_movies
+   end
+ end
 
   def question_5
     # What is the most recent movie on the list that the first actor appeared in?
